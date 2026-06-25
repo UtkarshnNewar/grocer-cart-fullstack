@@ -54,5 +54,20 @@ sudo docker compose up -d --build
 ```
 
 ## Step 5: Accessing the App
-Once the containers have successfully started, you can access your live application by navigating to your EC2 instance's Public IPv4 address in your browser:
-**http://<YOUR-EC2-PUBLIC-IP>:3000**
+Once the containers have successfully started, you can access your live application by navigating to your EC2 instance's Public IPv4 address in your browser (Nginx will handle routing on port 80):
+**http://<YOUR-EC2-PUBLIC-IP>**
+
+## Step 6: Connecting MongoDB Compass via SSH Tunnel
+Because your MongoDB database is running securely on the AWS server, you must connect to it using an SSH tunnel instead of opening the port to the public internet.
+
+1. Open **MongoDB Compass**.
+2. Click on **Advanced Connection Options** (or the **SSH / Proxy** tab).
+3. Go to the **SSH Tunnel** tab and check the box to enable it.
+4. Fill in the SSH details:
+   - **SSH Hostname:** `<YOUR-EC2-PUBLIC-IP>`
+   - **SSH Port:** `22`
+   - **SSH Username:** `ubuntu`
+   - **SSH Identity File:** Select your `.pem` key file (e.g., `my-server-key.pem`).
+5. Go back to the **General** tab and leave the connection string as:
+   `mongodb://localhost:27017`
+6. Click **Connect**. Compass will securely tunnel into the server and connect to your database!
