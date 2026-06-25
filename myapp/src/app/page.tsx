@@ -14,8 +14,8 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-    // Because this is a Client Component, the browser makes this request directly to localhost!
-    fetch('http://localhost:5000/api/products')
+    // Use relative path so Nginx reverse proxy handles it seamlessly in production!
+    fetch('/api/products')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error("Error fetching products:", err));
