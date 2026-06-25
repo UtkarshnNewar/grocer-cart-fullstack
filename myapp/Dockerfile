@@ -12,5 +12,6 @@ COPY . .
 # Expose the Next.js port
 EXPOSE 3000
 
-# Run in development mode for hot-reloading
-CMD ["npm", "run", "dev"]
+# Build for production and start the optimized server
+RUN npm run build
+CMD ["npm", "start"]

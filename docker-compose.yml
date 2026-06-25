@@ -6,23 +6,16 @@ services:
     restart: unless-stopped
     ports:
       - "3000:3000"
-    volumes:
-      - ./myapp:/app
-      - /app/node_modules
-      - /app/.next
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
 
   backend:
     build: ./backend
     restart: unless-stopped
     ports:
       - "5000:5000"
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/grocerCart
     depends_on:
       - mongo
