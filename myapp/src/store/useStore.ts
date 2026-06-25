@@ -26,7 +26,7 @@ interface AppState {
 }
 
 export const useStore = create<AppState>((set, get) => ({
-  user: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user') || 'null') : null,
+  user: typeof window !== 'undefined' ? (() => { try { return JSON.parse(localStorage.getItem('user') || 'null') } catch(e) { return null } })() : null,
   cart: [],
   login: (user) => {
     localStorage.setItem('user', JSON.stringify(user));
