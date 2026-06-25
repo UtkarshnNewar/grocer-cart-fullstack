@@ -39,7 +39,7 @@ This guide documents the exact steps we took to launch your Ubuntu server and co
 2. Go to the **SSH client** tab and copy the `ssh` command provided at the bottom under "Example".
 3. Paste that command into your PowerShell window (ensure you are still in the folder with your `.pem` file). It will look something like this:
    ```powershell
-   ssh -i "my-server-key.pem" ubuntu@ec2-13-49-244-114.eu-north-1.compute.amazonaws.com
+   ssh -i "my-server-key.pem" ubuntu@ec2-13-60-156-153.eu-north-1.compute.amazonaws.com
    ```
 4. The first time you connect, it will ask if you are sure you want to continue. Type `yes` and hit Enter.
 
@@ -48,7 +48,7 @@ This guide documents the exact steps we took to launch your Ubuntu server and co
 
 5. After that you can use to connect again:
    ```powershell
-   ssh -i "my-server-key.pem" ubuntu@13.49.244.114
+   ssh -i "my-server-key.pem" ubuntu@13.60.156.153
    ```
 
 ## Step 4: Creating a New User (Optional)
